@@ -16,7 +16,6 @@ def page_not_found(e):
 
 
 def create_app(config_filename):
-    app = Flask(__name__)
     app.register_error_handler(404, page_not_found)
     return app
 

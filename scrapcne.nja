@@ -1,0 +1,29 @@
+{
+  "mainFile": "scrapcne.py", 
+  "use-tabs": false, 
+  "venv": "/home/david/GitHubRepos/scrapcne/ENV/bin/python", 
+  "relatedProjects": [], 
+  "name": "scrapcne", 
+  "license": "Other Open Source", 
+  "url": "127.0.0.1:5000/api/cedula/23980047", 
+  "pythonPath": "python", 
+  "preExecScript": "", 
+  "additional_builtins": [], 
+  "programParams": "", 
+  "indentation": 4, 
+  "PYTHONPATH": "", 
+  "supported-extensions": [
+    ".py", 
+    ".html", 
+    ".jpg", 
+    ".png", 
+    ".ui", 
+    ".css", 
+    ".json", 
+    ".js", 
+    ".ini"
+  ], 
+  "project-type": "", 
+  "postExecScript": "", 
+  "description": "xzxz"
+}

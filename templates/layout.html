@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>#VENEZOLANO API</title>
+</head>
+<body>
+        <section class="hero is-info is-medium is-bold">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" href="../">
+                                #VENEZOLANO API
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenu" class="navbar-menu">
+                            <div class="navbar-end">
+                                <div class="tabs is-right">
+                                    <ul>
+                                        <li class="is-active"><a>Inicio</a></li>
+                                        <li><a href="">Ejemplos</a></li>
+                                        <li><a href="">Caracteristicas</a></li>
+                                        <li><a href="">Desarrollador</a></li>
+                                        <li><a href="">Ayuda</a></li>
+                                    </ul>
+                                    <span class="navbar-item">
+                                        <a class="button is-white is-outlined" href="https://github.com/dansup/bulma-templates/blob/master/templates/hero.html">
+                                            <span class="icon">
+                                                <i class="fa fa-github"></i>
+                                            </span>
+                                            <span title="Hello from the other side">Ver Codigo</span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                  {% block body %}
+                    <h1 class="title">
+                    #VENEZOLANO API
+                    </h1>
+                    <h2 class="subtitle">
+                   Este es un pequeño sistema que tiene como finalidad entregar informacion sobre la identidad de un 
+                   Ciudadano Venezolano en formato JSON completamente desarrollado en python con la plataforma (Flask).
+                    </h2>
+                 {% endblock %}
+                </div>
+            </div>
+        </section>
+        <div class="box cta">
+            <p class="has-text-centered">
+                <span class="tag is-primary">Nuevo</span> No me juzguen lo deje aqui por si las moscas lo necesito
+                para mas adelante soy muy flojo y no me gusta andar inventando ruedas todo el tiempo.
+            </p>
+                    <div class="content has-text-centered">
+                    <p>
+                        <a class="icon" href="https://github.com/dansup/bulma-templates">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </p>
+                    <div class="control level-item">
+                        <a href="https://github.com/dansup/bulma-templates">
+                            <div class="tags has-addons">
+                                <span class="tag is-dark">Flask</span>
+                                <span class="tag is-info">Open Source</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+</body>
+</html>

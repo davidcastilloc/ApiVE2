@@ -1,11 +1,11 @@
 {
-  "mainFile": "scrapcne.py", 
+  "mainFile": "webapi.py", 
   "use-tabs": false, 
-  "venv": "/home/david/GitHubRepos/scrapcne/ENV/bin/python", 
+  "venv": "/home/david/GitHubRepos/scrapcne/env/bin/python", 
   "relatedProjects": [], 
-  "name": "scrapcne", 
+  "name": "VenezolanoCI", 
   "license": "Other Open Source", 
-  "url": "127.0.0.1:5000/api/cedula/23980047", 
+  "url": "127.0.0.1:5000/", 
   "pythonPath": "python", 
   "preExecScript": "", 
   "additional_builtins": [], 
@@ -25,5 +25,5 @@
   ], 
   "project-type": "", 
   "postExecScript": "", 
-  "description": "xzxz"
+  "description": ""
 }

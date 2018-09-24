@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+__author__ = 'David Castillo'
 import unittest
 from cne import buscar
 

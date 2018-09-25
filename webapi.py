@@ -2,10 +2,13 @@
 __author__ = 'David Castillo'
 from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
+from livereload import Server
 from cne import buscar
 
 app = Flask(__name__)
 api = Api(app)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+server = Server(app.wsgi_app)
 
 
 class Buscaxcne(Resource):
@@ -48,4 +51,5 @@ def home():
 
 
 if __name__ == '__main__':
+    #server.serve()
     app.run(debug=True)

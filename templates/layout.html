@@ -1,83 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-    <title>#VENEZOLANO API {% block title %}{% endblock %}</title>
-</head>
-<body>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <title>#VENEZOLANO API {% block title %}{% endblock %}</title>
+    </head>
+    <body>
         <section class="hero is-info is-medium is-bold">
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-brand">
-                            <a class="navbar-item" href="../">
+                            <a class="navbar-item" href="../" style="font-weight:bold;">
                                 #VENEZOLANO API
                             </a>
                             <span class="navbar-burger burger" data-target="navbarMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </span>
                         </div>
                         <div id="navbarMenu" class="navbar-menu">
                             <div class="navbar-end">
                                 <div class="tabs is-right">
-                                    <ul>
-                                      {% for ni in ['home', 'ayuda', 'buscador', 'contribuir'] %}
-                                        <li {%- if request.path == url_for(ni) %} class="is-active"{% endif %}> <a href="{{ url_for(ni) }}">{{ ni | capitalize }}</a></li>
-                                      {% endfor %}
-                                    </ul>
-                                    <span class="navbar-item">
-                                        <a class="button is-white is-outlined" href="https://github.com/dansup/bulma-templates/blob/master/templates/hero.html">
-                                            <span class="icon">
-                                                <i class="fa fa-github"></i>
-                                            </span>
-                                            <span title="hola desde otro lado">Ver Codigo</span>
-                                        </a>
-                                    </span>
-                                </div>
+                            {% for ni in ['home', 'ayuda', 'buscador', 'contribuir'] %}
+                                        
+                                        <a class="navbar-item {% if request.path == url_for(ni) %}is-active{% endif %} is-outlined" href="{{ url_for(ni) }}">
+                                        
+                                        <span class="icon">
+                                            <i class="fa fa-point "></i>
+                                        </span>
+                                       
+                                        <span>{{ ni | capitalize }}</span>
+                                    </a>
+
+                            {% endfor %}
+                                
+                                <span class="navbar-item">
+                                    <a class="button is-white is-outlined" href="https://github.com/dansup/bulma-templates/blob/master/templates/hero.html">
+                                        <span class="icon">
+                                            <i class="fa fa-github"></i>
+                                        </span>
+                                        <span title="hola desde otro lado">Ver Codigo</span>
+                                    </a>
+                                </span>
                             </div>
                         </div>
                     </div>
-                </nav>
-            </div>
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                  {% block body %}
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                {% block body %}
                     <h1 class="title">
                     #VENEZOLANO API
                     </h1>
                     <h2 class="subtitle">
-                   Este es un pequeño sistema que tiene como finalidad entregar informacion sobre la identidad de un
-                   Ciudadano Venezolano en formato JSON completamente desarrollado en python con la plataforma (Flask).
+                    Este es un pequeño sistema que tiene como finalidad entregar informacion sobre la identidad de un
+                    Ciudadano Venezolano en formato JSON completamente desarrollado en python con la plataforma (Flask).
                     </h2>
-                 {% endblock %}
-                </div>
+                {% endblock %}
             </div>
-        </section>
-        <div class="box cta">
-            <p class="has-text-centered">
-                <span class="tag is-primary">Nuevo</span> No me juzguen lo deje aqui por si las moscas lo necesito
-                para mas adelante soy muy flojo y no me gusta andar inventando ruedas todo el tiempo.
+        </div>
+    </section>
+    <div class="box cta">
+        <p class="has-text-centered">
+            <span class="tag is-primary">Nuevo</span> No me juzguen lo deje aqui por si las moscas lo necesito
+            para mas adelante soy muy flojo y no me gusta andar inventando ruedas todo el tiempo.
+        </p>
+        <div class="content has-text-centered">
+            <p>
+                <a class="icon" href="https://github.com/dansup/bulma-templates">
+                    <i class="fa fa-github"></i>
+                </a>
             </p>
-                    <div class="content has-text-centered">
-                    <p>
-                        <a class="icon" href="https://github.com/dansup/bulma-templates">
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </p>
-                    <div class="control level-item">
-                        <a href="https://github.com/dansup/bulma-templates">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Flask</span>
-                                <span class="tag is-info">Open Source</span>
-                            </div>
-                        </a>
+            <div class="control level-item">
+                <a href="https://github.com/dansup/bulma-templates">
+                    <div class="tags has-addons">
+                        <span class="tag is-dark">Flask</span>
+                        <span class="tag is-info">Open Source</span>
                     </div>
-                </div>
+                </a>
+            </div>
+        </div>
+        <script async type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    </body>
 </body>
 </html>

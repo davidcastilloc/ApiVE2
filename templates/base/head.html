@@ -1,0 +1,44 @@
+<div class="hero-head">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../" style="font-weight:bold;">
+                    #APIVE
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="tabs is-right">
+                        {# NOMBRE DE LA RUTA = ICONO DE AWESOME ICONS#}
+                        {% for navitem in ['home=home', 'ayuda=question', 'buscador=search', 'contribuir=handshake-o'] %}
+                            {% set rutas = navitem.split('=')[0] %}
+                            {% set icons = navitem.split('=')[1] %}
+                            <a class="navbar-item  is-outlined" href="{{ url_for(rutas)}}">
+                                
+                                <span class="icon">
+                                    <i class="fa fa-{{icons}} "></i>
+                                </span>
+                                
+                                <span>{{ rutas | capitalize }}</span>
+                            </a>
+                        {% endfor %}
+                        
+                        <span class="navbar-item">
+                            <a class="button is-white is-outlined" href="https://github.com/dansup/bulma-templates/blob/master/templates/hero.html">
+                                <span class="icon">
+                                    <i class="fa fa-github"></i>
+                                </span>
+                                <span title="Para ver el codigo del proyecto!">Ver Codigo</span>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

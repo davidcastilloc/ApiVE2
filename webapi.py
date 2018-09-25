@@ -2,21 +2,17 @@
 __author__ = 'David Castillo'
 from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
-from livereload import Server
 from cne import buscar
 
 app = Flask(__name__)
 api = Api(app)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-server = Server(app.wsgi_app)
 
 
 class Buscaxcne(Resource):
     def get(self, cedula):
         ciudadano = buscar(cedula)
-        return  jsonify(ciudadano)
-
-api.add_resource(Buscaxcne, '/api/venezolano/<cedula>')
+        return jsonify(ciudadano)
 
 
 @app.errorhandler(404)
@@ -47,9 +43,11 @@ def ayuda():
 
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('layout.html')
+    return render_template('/base/layout.html')
+
+
+api.add_resource(Buscaxcne, '/api/v/<cedula>')
 
 
 if __name__ == '__main__':
-    #server.serve()
     app.run(debug=True)

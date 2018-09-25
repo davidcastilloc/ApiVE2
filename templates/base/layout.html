@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <title>#VENEZOLANO API {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <section class="hero is-info">
+           {% include 'base/head.html'%}
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    {% block body %}
+                        <h1 class="title">
+                        #APIVE
+                        </h1>
+                        <h2 class="subtitle">
+                        Este es un pequeño sistema que tiene como finalidad entregar informacion sobre la identidad de un
+                        Ciudadano Venezolano en formato JSON completamente desarrollado en python con la plataforma (Flask).
+                        </h2>
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+        <div class="box cta">
+            <p class="has-text-centered">
+                <span class="tag is-primary">Nuevo</span> No me juzguen lo deje aqui por si las moscas lo necesito
+                para mas adelante soy muy flojo y no me gusta andar inventando ruedas todo el tiempo.
+            </p>
+            <div class="content has-text-centered">
+                <div class="control level-item">
+                    <a href="https://github.com/dansup/bulma-templates">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">Flask</span>
+                            <span class="tag is-info">Open Source</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+            <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>#APIVE</strong> por <a href="https://davidcastilloc.github.io/">David Castillo</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. El contenido del sitio web esta bajo licencia <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+            <script async type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+        </body>
+    </body>
+</html>

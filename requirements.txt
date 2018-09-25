@@ -9,9 +9,11 @@ gunicorn==19.9.0
 idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
+livereload==2.5.2
 MarkupSafe==1.0
 pytz==2018.5
 requests==2.19.1
 six==1.11.0
+tornado==5.1.1
 urllib3==1.23
 Werkzeug==0.14.1

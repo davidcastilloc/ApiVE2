@@ -12,7 +12,11 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 class Buscaxcne(Resource):
     def get(self, cedula):
         ciudadano = buscar(cedula)
-        return jsonify(ciudadano)
+        result = {
+        'ciudadano': ciudadano,
+        }
+
+        return jsonify(result)
 
 
 @app.errorhandler(404)

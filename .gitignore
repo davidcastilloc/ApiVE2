@@ -157,7 +157,13 @@ pyvenv.cfg
 pip-selfcheck.json
 
 
+<<<<<<< HEAD
 .vscode/
 workspace.code-workspace
 __pycache__/*.*
 # End of https://www.gitignore.io/api/git,ninja,python,django
+=======
+# End of https://www.gitignore.io/api/git,ninja,python,django
+workspace.code-workspace
+.vscode/
+>>>>>>> problema

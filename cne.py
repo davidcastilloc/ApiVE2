@@ -43,13 +43,13 @@ def buscar(cedula):
                         ciudadano['primerNombre'] = nombre_completo[0]
                         ciudadano['segundoNombre'] = nombre_completo[1]
                         #obtenemos el apellido apuntando al ultimo item -1
-                        ciudadano['Apellido1'] = nombre_completo[-1]
+                        ciudadano['primerApellido'] = nombre_completo[-1]
                     else:
                         #COLOCAMOS LOS NOMBRES Y APELLIDOS DONDE VAN
                         ciudadano['primerNombre'] = nombre_completo[0]
                         ciudadano['segundoNombre'] = nombre_completo[1]
-                        ciudadano['Apellido1'] = nombre_completo[2]
-                        ciudadano['Apellido2'] = nombre_completo[3]
+                        ciudadano['primerApellido'] = nombre_completo[2]
+                        ciudadano['segundoApellido'] = nombre_completo[3]
                 elif(len(nombre_completo) == 2):
                     ciudadano['primerNombre'] = nombre_completo[0]
                     ciudadano['Apellido1'] = nombre_completo[-1]

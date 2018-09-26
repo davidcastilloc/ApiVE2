@@ -4,16 +4,18 @@ from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
 from cne import buscar
 
+
 app = Flask(__name__)
 api = Api(app)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
 
 
 class Buscaxcne(Resource):
     def get(self, cedula):
         ciudadano = buscar(cedula)
         result = {
-        'ciudadano': ciudadano,
+            'ciudadano': ciudadano,
         }
 
         return jsonify(result)
@@ -22,7 +24,7 @@ class Buscaxcne(Resource):
 @app.errorhandler(404)
 def page_not_found(e):
     # note that we set the 404 status explicitly
-    return render_template('404.html'), 404
+    return render_template('404.pug'), 404
 
 
 def create_app(config_filename):
@@ -32,22 +34,22 @@ def create_app(config_filename):
 
 @app.route('/buscador', methods=['GET'])
 def buscador():
-    return render_template('buscar_ciudadano.html')
+    return render_template('buscar_ciudadano.pug')
 
 
 @app.route('/contribuir', methods=['GET'])
 def contribuir():
-    return render_template('contribuir.html')
+    return render_template('contribuir.pug')
 
 
 @app.route('/ayuda', methods=['GET'])
 def ayuda():
-    return render_template('ayuda.html')
+    return render_template('ayuda.pug')
 
 
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('/base/layout.html')
+    return render_template('/base/layout.pug')
 
 
 api.add_resource(Buscaxcne, '/api/v/<cedula>')

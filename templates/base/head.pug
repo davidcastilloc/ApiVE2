@@ -1,0 +1,38 @@
+html
+  body
+    .hero-head
+      nav.navbar
+        .container
+          .navbar-brand
+            a.navbar-item(href='../', style='font-weight:bold;')
+              | #APIVE
+            |                 
+            span.navbar-burger.burger(data-target='navbarMenu')
+              span
+              |                     
+              span
+              |                     
+              span
+          |             
+          #navbarMenu.navbar-menu
+            .navbar-end
+              .tabs.is-right
+                | {# NOMBRE DE LA RUTA = ICONO DE AWESOME ICONS#}
+                | {% for navitem in ['home=home', 'ayuda=question', 'buscador=search', 'contribuir=handshake-o'] %}
+                | {% set rutas = navitem.split('=')[0] %}
+                | {% set icons = navitem.split('=')[1] %}
+                a.navbar-item.is-outlined(href='{{ url_for(rutas)}}')
+                  span.icon
+                    i.fa(class='fa-{{icons}}')
+                  |                                 
+                  |                                 
+                  span {{ rutas | capitalize }}
+                |                         {% endfor %}
+                |                         
+                |                         
+                span.navbar-item
+                  a.button.is-white.is-outlined(href='https://github.com/dansup/bulma-templates/blob/master/templates/hero.html')
+                    span.icon
+                      i.fa.fa-github
+                    |                                 
+                    span(title='Para ver el codigo del proyecto!') Ver Codigo

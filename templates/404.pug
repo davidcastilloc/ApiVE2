@@ -1,0 +1,10 @@
+html
+  body
+    | {% extends 'base/layout.pug' %}
+    | {% block title %}Page Not Found{% endblock %}
+    | {% block body %}
+    h1.title ERROR 404 
+    |  
+    h2.subtitle
+      | mano acabas de generar un error 404 por que la ruta que escojiste esta rota o la movimos de site. :/
+    | {% endblock %}

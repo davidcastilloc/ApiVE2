@@ -2,8 +2,8 @@ div.hero-head
       nav.navbar
         .container
           .navbar-brand
-            a.navbar-item(href='../')
-                img(src="./static/apive.png")
+            a.navbar-item(href= url_for('home'))
+                img(src= url_for('static', filename='apive.png'))
             span.navbar-burger.burger(data-target='navbarMenu')
               span
               |
@@ -14,12 +14,8 @@ div.hero-head
           #navbarMenu.navbar-menu
             .navbar-end
               .tabs.is-right
-                a.navbar-item(href='../')
-                  span.icon
-                    i.fa.fa-home
-                  span Inicio
                 each ruta, index in config.menu.rutas
-                  a.navbar-item.is-outlined(href= config.menu.rutas[index])
+                  a.navbar-item.is-outlined(href= url_for(config.menu.rutas[index]))
                     span.icon
                       i(class= config.menu.iconos[index])
                     span= config.menu.rutas[index].capitalize()

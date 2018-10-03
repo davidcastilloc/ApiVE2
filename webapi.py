@@ -8,14 +8,14 @@ from cne import buscar
 
 app = Flask(__name__)
 api = Api(app)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'application/json'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-logging.getLogger('flask_cors').level = logging.DEBUG
+# logging.getLogger('flask_cors').level = logging.DEBUG
 app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
-app.config['menu'] = {'rutas': ['ayuda', 'buscador', 'contribuir'],
-                      'iconos': ['fa fa-question', 'fa fa-search',
-                                 'fa fa-handshake-o']}
+app.config['menu'] = {'rutas': ['home', 'ayuda', 'buscador', 'contribuir'],
+                      'iconos': ['fa fa-home', 'fa fa-question',
+                                 'fa fa-search', 'fa fa-handshake-o']}
 
 
 class Buscaxcne(Resource):
@@ -54,7 +54,8 @@ def ayuda():
     return render_template('ayuda.pug')
 
 
-@app.route('/', methods=['GET'])
+@app.route('/home')
+@app.route('/')
 def home():
     return render_template('/base/layout.pug')
 

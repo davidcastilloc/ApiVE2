@@ -2,13 +2,20 @@
 __author__ = 'David Castillo'
 from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
+from flask_cors import CORS, logging
 from cne import buscar
 
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'application/json'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+logging.getLogger('flask_cors').level = logging.DEBUG
 app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
+app.config['menu'] = {'rutas': ['ayuda', 'buscador', 'contribuir'],
+                      'iconos': ['fa fa-question', 'fa fa-search',
+                                 'fa fa-handshake-o']}
 
 
 class Buscaxcne(Resource):

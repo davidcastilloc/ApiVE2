@@ -16,7 +16,35 @@ html,body {
   box-shadow: none;
 }
 
+body > section > div.hero-head > nav > div > div.navbar-brand > a > img{
+    height: 100px;
+}
+
+.navbar-item img {
+    max-height: 1.75rem;
+}
+
 .hero .subtitle {
   padding: 3rem 0;
   line-height: 1.5;
+}
+  /* Ocultando Scroll de todo el sitio web */
+html::-webkit-scrollbar {
+  display: none;
+}
+#footer {
+    background-color: #fafafa;
+    padding: 1rem 1.5rem 2rem;
+}
+.bd-footer-iframe {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    min-height: 30px;
+}
+
+
+
+#btngitlab, #btnfacebook, #btninstagram {
+
 }

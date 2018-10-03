@@ -1,19 +1,5 @@
-html
-  body
-    | {% extends 'base/layout.pug' %}
-    | {% block title %}BUSCADOR{% endblock %}
-    | {% block body %}
-    h1.title Buscador 
-    |  
-    h2.subtitle
-    .card
-      | Buscador de ciudadanos :V
-      .box
-        .field.is-grouped
-          p.control.is-expanded
-            input.input(type='text', placeholder='BUSCAR')
-          |         
-          p.control
-            a.button.is-info
-              | BUSCAR
-    | {% endblock %}
+extends base/layout
+block title
+    | - BUSCADOR
+block contenido
+  +construyendo

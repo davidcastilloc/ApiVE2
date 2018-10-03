@@ -7,7 +7,8 @@ def buscar(cedula):
         ciudadano = []
 
         URL = ("http://www.cne.gov.ve/web/registro_electoral/ce.php?" +
-        "nacionalidad=V" + "&cedula=" + str(cedula))
+               "nacionalidad=V" + "&cedula=" + str(cedula))
+
         # Realizamos la petición a la web
         try:
             req = requests.get(URL)
@@ -18,23 +19,24 @@ def buscar(cedula):
             datos = html.find_all('td', {'align': 'left'})
 
             if len(datos) < 1:
-                ciudadano = {'error': True,
-                    'descripcion': 'CIUDADANO NO ENCONTRADO!'}
+                ciudadano = {
+                    'Error': True,
+                    'descripcion': 'CIUDADANO NO ENCONTRADO!'
+                }
             else:
                 ciudadano = {
-                        'nacionalidad': 'V',
-                        'cedula': int(cedula),
-                        'ubicacion': {
-                            'estado': datos[5].getText(),
-                            'municipio': datos[7].getText(),
-                            'parroquia': datos[9].getText(),
-                            'centro': datos[11].getText(),
-                            'direccion': datos[13].getText()
-                            }
-                        }
-                #si el ciudadano tiene un solo nombre devuelve True
+                    'nacionalidad': 'V',
+                    'cedula': int(cedula),
+                    'estado': datos[5].getText(),
+                    'municipio': datos[7].getText(),
+                    'parroquia': datos[9].getText(),
+                    'centro': datos[11].getText(),
+                    'direccion': datos[13].getText()
+                }
+
+                # si el ciudadano tiene un solo nombre devuelve True
                 un_nombre = str(datos[3]).find(' </b>') > 0
-                #si el ciudadano tiene un solo apellido devuelve True
+                # si el ciudadano tiene un solo apellido devuelve True
                 un_apellido = str(datos[3]).find('  ') > 0
                 nombre_completo = datos[3].getText().split()
                 # SI EL NOMBRE_COMPLETO CONTIENE 4 FRASES O MAS
@@ -42,10 +44,10 @@ def buscar(cedula):
                     if (un_apellido):
                         ciudadano['primerNombre'] = nombre_completo[0]
                         ciudadano['segundoNombre'] = nombre_completo[1]
-                        #obtenemos el apellido apuntando al ultimo item -1
+                        # obtenemos el apellido apuntando al ultimo item -1
                         ciudadano['primerApellido'] = nombre_completo[-1]
                     else:
-                        #COLOCAMOS LOS NOMBRES Y APELLIDOS DONDE VAN
+                        # COLOCAMOS LOS NOMBRES Y APELLIDOS DONDE VAN
                         ciudadano['primerNombre'] = nombre_completo[0]
                         ciudadano['segundoNombre'] = nombre_completo[1]
                         ciudadano['primerApellido'] = nombre_completo[2]
@@ -65,8 +67,9 @@ def buscar(cedula):
                 else:
                     ciudadano['Nombre'] = datos[3].getText().split()
 
-        except Exception:
+        except Exception as e:
             ciudadano = {'Error': True,
-                  'Descripcion': 'El servicio de datos del CNE esta Offline!'}
+                         'Tipo': '{c}'.format(c=type(e).__name__),
+                         'Descripcion': str(e)}
 
-        return  ciudadano
+        return ciudadano

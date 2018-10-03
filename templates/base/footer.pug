@@ -2,14 +2,19 @@ footer#footer
   .container.content
     .columns
       .column.is-4
-        h4.bd-footer-title
+        .bd-footer-title
           strong #APIVE
           h4 David Castillo
         .bd-footer-iframe
           +twitter
       .column.is-4
-        .bd-footer-iframe Escrito con mucho amor, con el fin de aprender.
-
+        .bd-footer-title
+        strong Escrito con mucho amor, con el fin de aprender.
+        .bd-footer-iframe
+        a(href='http://flask.pocoo.org/')
+          .tags.has-addons
+            span.tag.is-dark Flask
+            span.tag.is-info Open Source
       .column.is-4
         h4.bd-footer-title
           strong Sigueme en mis redes sociales!

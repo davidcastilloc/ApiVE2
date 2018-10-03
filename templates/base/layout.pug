@@ -12,9 +12,16 @@ html(lang=es)
           block contenido
             .content
                 img(src= url_for('static', filename='apive.png'))
-            .content
-              | Este es un pequeño sistema que tiene como finalidad entregar informacion sobre la identidad de un
-              | Ciudadano Venezolano en formato JSON completamente desarrollado en python con la plataforma (Flask).
+            .columns.is-mobile
+              column.is-three-fifths.is-offset-one-fifth
+                | Este es un pequeño sistema que tiene como finalidad entregar informacion sobre la identidad de un
+                | Ciudadano Venezolano en formato JSON completamente desarrollado en python con la plataforma (Flask).
+            .tile.is-ancestor
+              .tile.is-vertical.is-7
+              a(href="https://apive.herokuapp.com/api/v1/7654321")
+                .notification.is-dark(title='Pinchame para probarme!')
+                  |Ruta: https://apive.herokuapp.com/api/v1/[CEDULA]
+
     include ./base/footer
 
     //Script Del Sitio

@@ -60,7 +60,7 @@ def home():
     return render_template('/base/layout.pug')
 
 
-api.add_resource(Buscaxcne, '/api/v/<cedula>')
+api.add_resource(Buscaxcne, '/api/v1/<cedula>')
 
 
 if __name__ == '__main__':

@@ -3,19 +3,22 @@ __author__ = 'David Castillo'
 from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
 from flask_cors import CORS
-from cne import buscar
-
+from flask_sslify import SSLify
+from .cne import buscar
+from .config import DevelopmentConfig
 
 app = Flask(__name__)
 api = Api(app)
+app.config['SECRET_KEY'] = '84a54fa37b591b64e13e2db2ce2bcd7c9c0c310c92d83e61'
+app.config.from_object(DevelopmentConfig)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-app.config['CORS_HEADERS'] = 'application/json'
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-
-app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
 app.config['menu'] = {'rutas': ['home', 'ayuda', 'buscador', 'contribuir'],
                       'iconos': ['fa fa-home', 'fa fa-question',
                                  'fa fa-search', 'fa fa-handshake-o']}
+
+app.config['CORS_HEADERS'] = 'application/json'
+sslify = SSLify(app)
+app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
 
 
 class Buscaxcne(Resource):
@@ -64,4 +67,4 @@ api.add_resource(Buscaxcne, '/api/v1/<cedula>')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(app)

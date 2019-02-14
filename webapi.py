@@ -17,7 +17,7 @@ app.config['menu'] = {'rutas': ['home', 'ayuda', 'buscador', 'contribuir'],
                                  'fa fa-search', 'fa fa-handshake-o']}
 
 app.config['CORS_HEADERS'] = 'application/json'
-sslify = SSLify(app)
+#sslify = SSLify(app)
 app.jinja_env.add_extension('pypugjs.ext.jinja.PyPugJSExtension')
 
 
@@ -67,4 +67,4 @@ api.add_resource(Buscaxcne, '/api/v1/<cedula>')
 
 
 if __name__ == '__main__':
-    app.run(app)
+    app.run(debug='true')

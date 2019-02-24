@@ -40,7 +40,7 @@ def buscar(cedula):
                 un_apellido = str(datos[3]).find('  ') > 0
                 nombre_completo = datos[3].getText().split()
                 # SI EL NOMBRE_COMPLETO CONTIENE 4 FRASES O MAS
-                if len(nombre_completo) >= 4:
+                if len(nombre_completo) <= 4:
                     if (un_apellido):
                         ciudadano['primerNombre'] = nombre_completo[0]
                         ciudadano['segundoNombre'] = nombre_completo[1]
@@ -64,9 +64,13 @@ def buscar(cedula):
                         ciudadano['primerNombre'] = nombre_completo[0]
                         ciudadano['primerApellido'] = nombre_completo[1]
                         ciudadano['segundoApellido'] = nombre_completo[2]
-                else:
-                    ciudadano['Nombre'] = datos[3].getText().split()
-
+                elif nombre_completo[1] is "DEL" or "DEL ":
+                    ciudadano['primerNombre'] = nombre_completo[0]
+                    ciudadano['segundoNombre'] = nombre_completo[1]+ " " + nombre_completo[2]
+                    ciudadano['primerApellido'] = nombre_completo[3]
+                    ciudadano['segundoApellido'] = nombre_completo[4]
+                ciudadano['nombreCompleto'] = datos[3].getText()
+            
         except Exception as e:
             ciudadano = {'Error': True,
                          'Tipo': '{c}'.format(c=type(e).__name__),

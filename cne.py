@@ -20,11 +20,12 @@ def buscar(cedula):
 
             if len(datos) < 1:
                 ciudadano = {
-                    'Error': True,
+                    'error': True,
                     'descripcion': 'CIUDADANO NO ENCONTRADO!'
                 }
             else:
                 ciudadano = {
+                    'error': False,
                     'nacionalidad': 'V',
                     'cedula': int(cedula),
                     'estado': datos[5].getText(),
@@ -37,7 +38,7 @@ def buscar(cedula):
                 # si el ciudadano tiene un solo nombre devuelve True
                 un_nombre = str(datos[3]).find(' </b>') > 0
                 # si el ciudadano tiene un solo apellido devuelve True
-                un_apellido = str(datos[3]).find('  ') > 0
+                un_apellido = str(datos[3]).find(' ') > 0
                 nombre_completo = datos[3].getText().split()
                 # SI EL NOMBRE_COMPLETO CONTIENE 4 FRASES O MAS
                 if len(nombre_completo) <= 4:
@@ -72,8 +73,8 @@ def buscar(cedula):
                 ciudadano['nombreCompleto'] = datos[3].getText()
             
         except Exception as e:
-            ciudadano = {'Error': True,
-                         'Tipo': '{c}'.format(c=type(e).__name__),
-                         'Descripcion': str(e)}
+            ciudadano = {'error': True,
+                         'tipo': '{c}'.format(c=type(e).__name__),
+                         'descripcion': str(e)}
 
         return ciudadano

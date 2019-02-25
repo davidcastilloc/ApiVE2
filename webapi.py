@@ -44,7 +44,7 @@ def create_app(config_filename):
 
 @app.route('/buscador', methods=['GET'])
 def buscador():
-    return render_template('buscar_ciudadano.pug')
+    return render_template('buscar_ciudadano.html')
 
 
 @app.route('/contribuir', methods=['GET'])

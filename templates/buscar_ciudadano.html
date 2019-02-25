@@ -83,6 +83,8 @@
   },
     methods: {
     buscar: function (event) {
+    //Si la cedula no es mayor al millon, no vale la pena hacer la solicitud a la api
+
     if (this.cedula >= 1000000) {
         this.validacion = false
         var URL = "/api/v1/" + this.cedula
@@ -99,7 +101,10 @@
              }
         })
     }else{
+    // enciendo el mensaje de validacion y reseteo el componente.
        this.validacion = true
+       this.resultado = false
+
     }
 
     },

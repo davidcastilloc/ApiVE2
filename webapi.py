@@ -14,7 +14,7 @@ app.config.from_object(DevelopmentConfig)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['menu'] = {'rutas': ['home', 'ayuda', 'buscador', 'contribuir'],
                       'iconos': ['fa fa-home', 'fa fa-question',
-                                 'fa fa-search', 'fa fa-handshake-o']}
+                                 'fa fa-search', 'far fa-handshake']}
 
 app.config['CORS_HEADERS'] = 'application/json'
 sslify = SSLify(app)

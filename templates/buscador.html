@@ -1,10 +1,8 @@
 <div id="app">
 	<div v-if="loading">
-		
-					<span class="icon">
-						<i class="fa fa-3x fa-spinner fa-pulse"></i>
-					</span>
-	
+		<span class="icon">
+			<i class="fa fa-3x fa-spinner fa-pulse"></i>
+		</span>
 	</div>
 	<div v-else>
 		<div class="content">
@@ -20,6 +18,7 @@
 					</div>
 				</div>
 			</div>
+			<div class="column is-white is-10 is-offset-1">
 			<article v-if="validacion" class="message is-warning">
 				<div class="message-header">
 					<p>Problema de validacion!</p>
@@ -30,7 +29,8 @@
 				<div class="message-body">
 					<span class="icon">
 						<i class="fa fa-3x fa-exclamation-triangle"></i>
-					</span><h1>Verifique la cedula!</h1>
+					</span>
+					<h1>Verifique la cedula!</h1>
 				</div>
 			</article>
 			<article v-if="datos.error"  v-bind:class= "{active: datos.error}" class="message is-danger">
@@ -41,9 +41,13 @@
 					class="delete" ></button>
 				</div>
 				<div class="message-body">
+					<span class="icon">
+						<i class="fas fa-3x fa-exclamation"></i>
+					</span>
 					<h1> {{ '{{datos.descripcion}}' }}</h1>
 				</div>
 			</article>
+			</div> 
 			<div v-if="resultado" class="column notification is-white is-10 is-offset-1 ">
 				<table class="table is-bordered">
 					<tbody v-for="(value, key) in datos">

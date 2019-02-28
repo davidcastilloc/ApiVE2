@@ -1,3 +1,4 @@
+flask-cachebuster
 aniso8601==3.0.2
 astroid==2.0.4
 beautifulsoup4==4.6.3

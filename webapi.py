@@ -6,11 +6,21 @@ from flask_cors import CORS
 from flask_sslify import SSLify
 from cne import buscar
 from config import DevelopmentConfig
+from flask_cachebuster import CacheBuster
 
 app = Flask(__name__)
 api = Api(app)
 app.config['SECRET_KEY'] = '84a54fa37b591b64e13e2db2ce2bcd7c9c0c310c92d83e61'
 app.config.from_object(DevelopmentConfig)
+
+config = {
+    'extensions': ['.js', '.css', '.csv'],
+    'hash_size': 10
+}
+
+cache_buster = CacheBuster(config=config)
+cache_buster.init_app(app)
+
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['menu'] = {'rutas': ['home', 'ayuda', 'buscador', 'contribuir'],
                       'iconos': ['fa fa-home', 'fa fa-question',
@@ -29,6 +39,17 @@ class Buscaxcne(Resource):
         }
 
         return jsonify(result)
+
+
+@app.after_request
+def add_header(response):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    response.headers['Cache-Control'] = 'public, max-age=0'
+    return response
 
 
 @app.errorhandler(404)
@@ -67,4 +88,4 @@ api.add_resource(Buscaxcne, '/api/v1/<cedula>')
 
 
 if __name__ == '__main__':
-    app.run(debug='false')
+    app.run(debug=False)

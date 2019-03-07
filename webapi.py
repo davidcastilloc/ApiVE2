@@ -4,8 +4,8 @@ from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from flask_sslify import SSLify
-from .cne import buscar
-from .config import DevelopmentConfig
+from cne import buscar
+from config import DevelopmentConfig
 from flask_cachebuster import CacheBuster
 
 app = Flask(__name__)

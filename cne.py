@@ -22,9 +22,9 @@ def buscar(cedula):
             # Obtenemos todos los td donde están los datos del ciudadano
             datos = html.find_all('td', {'align': 'left'})
             datosb = html.find_all('td')
-            verificar_a= str(datosb[11].getText()).find('no corresponde')> -1 
+            verificar_a= str(datosb[11].getText()).find('no corresponde')> -1
             verificar_b= str(datosb[11].getText()).find('Cédula: ') > -1
-            cedula_no_existe = verificar_a or verificar_b 
+            cedula_no_existe = verificar_a or verificar_b
             print(str(datosb[11].getText()).find('Cédula: '))
             #si la cedula no corresponde a un ciudadano registrado
             if (cedula_no_existe):
@@ -94,12 +94,12 @@ def buscar(cedula):
                     ciudadano['primerApellido'] = nombre_completo[3]
                     ciudadano['segundoApellido'] = nombre_completo[4]
                 ciudadano['nombreCompleto'] = datos[3].getText()
-        
+
         except ValueError:
             ciudadano = {'error': True,
                          'tipo': 1,
                          'descripcion': 'Verifique la cedula!'}
-   
+
         except Exception as e:
             ciudadano = {'error': True,
                          'tipo': '{c}'.format(c=type(e).__name__),

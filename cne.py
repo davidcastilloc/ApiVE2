@@ -63,7 +63,7 @@ def buscar(cedula):
                 # si el ciudadano tiene un solo nombre devuelve True
                 un_nombre = str(datos[3]).find('  ') > 0
                 nombre_completo = datos[3].getText().split()
-                # SI EL NOMBRE_COMPLETO CONTIENE 4 FRASES O MAS
+                # SI EL NOMBRE_COMPLETO CONTIENE 4 FRASES O MENOS
                 if len(nombre_completo) <= 4:
                     if (un_apellido):
                         ciudadano['primerNombre'] = nombre_completo[0]

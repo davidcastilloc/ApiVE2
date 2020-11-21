@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  fastapi:
+    build: .
+    command: /start-reload.sh
+    volumes:
+      - ./src:/app
+    ports:
+      - 8080:80
+    environment:
+      - MODULE_NAME=main
+      - VARIABLE_NAME=app
+      - APP_MODULE=app.main:app
+      - HOST=0.0.0.0
+      - PORT=80
+      - LOG_LEVEL=debug

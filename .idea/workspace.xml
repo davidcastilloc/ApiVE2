@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c306813e-f31d-4f15-9813-db6dc43550f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Ciudadano.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +54,12 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
@@ -159,9 +155,9 @@
     </state>
     <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1605859359624" />
     <state x="386" y="153" width="672" height="658" key="search.everywhere.popup/0.27.1440.873@0.27.1440.873" timestamp="1605936323336" />
-    <state x="439" y="283" width="544" height="196" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1605804377970">
+    <state x="439" y="259" width="544" height="196" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1606010799632">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="439" y="283" width="544" height="196" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1440.900@0.0.1440.900" timestamp="1605804377970" />
+    <state x="439" y="259" width="544" height="196" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1440.900@0.0.1440.900" timestamp="1606010799632" />
   </component>
 </project>

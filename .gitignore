@@ -104,10 +104,11 @@ fabric.properties
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
+.idea/workspace.xml
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -257,3 +258,5 @@ dmypy.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,visualstudiocode
+.idea/workspace.xml
+.idea/workspace.xml

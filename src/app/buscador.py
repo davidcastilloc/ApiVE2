@@ -16,8 +16,6 @@ CI_FALLECIDO = 401
 
 
 def get_ciudadano(nacionalidad, cedula):
-    print(nacionalidad)
-    print(cedula)
     ciudadano = get_registro_nacional_electoral(nacionalidad, cedula)
     if ciudadano is CI_NO_REGISTRADA:
         ciudadano = get_registro_civil(nacionalidad, cedula)

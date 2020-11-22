@@ -2,7 +2,7 @@
 from fastapi import FastAPI, HTTPException, Path, status
 from starlette.middleware.cors import CORSMiddleware
 from .models import Ciudadano
-from .Ciudadano import get_ciudadano
+from .buscador import get_ciudadano
 
 app = FastAPI()
 app.add_middleware(

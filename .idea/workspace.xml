@@ -20,50 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c306813e-f31d-4f15-9813-db6dc43550f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Ciudadano.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/helpers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cne.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/startServerDev.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/android-chrome-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/android-chrome-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/apive.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/mstile-150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/safari-pinned-tab.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/404.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ayuda.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/footer.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/headers.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/layout.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/menu.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/mixins.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/buscador.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/buscar_ciudadano.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contribuir.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Ciudadano.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +128,10 @@
     </state>
     <state x="170" y="26" width="1084" height="834" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1605808079745" />
     <state x="170" y="-10" width="1084" height="873" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1440.873@0.27.1440.873" timestamp="1605929694229" />
+    <state x="410" y="220" width="609" height="409" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605962529685">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="410" y="220" width="609" height="409" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1605962529685" />
     <state x="551" y="300" width="311" height="214" key="DockerComposeFileDialog" timestamp="1605808027420">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

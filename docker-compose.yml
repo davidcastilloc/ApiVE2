@@ -2,15 +2,15 @@ version: "3.7"
 services:
   web:
     build: .
-    command: /start-reload.sh
+    command: /start.sh
     volumes:
-      - ./src:/app
+      - ./:/app
     ports:
       - 8080:80
     environment:
       - MODULE_NAME=main
       - VARIABLE_NAME=app
-      - APP_MODULE=app.main:app
+      - APP_MODULE=src.app.main:app
       - HOST=0.0.0.0
       - PORT=80
       - LOG_LEVEL=debug

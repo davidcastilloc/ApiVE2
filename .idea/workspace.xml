@@ -20,8 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c306813e-f31d-4f15-9813-db6dc43550f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/apive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/apive.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/buscador.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/buscador.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +60,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
@@ -141,19 +150,19 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="406" y="44" width="618" height="747" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605830081480" />
-    <state x="205" y="15" width="992" height="910" key="SettingsEditor" timestamp="1605954299810">
+    <state x="71" y="-130" width="992" height="900" key="SettingsEditor" timestamp="1606117000687">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="205" y="15" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1605954299810" />
+    <state x="71" y="-130" width="992" height="900" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606117000687" />
     <state x="205" y="-10" width="992" height="910" key="SettingsEditor/0.27.1440.873@0.27.1440.873" timestamp="1605930218314" />
     <state x="151" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605956780620">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="151" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1605956780620" />
-    <state x="386" y="153" width="672" height="658" key="search.everywhere.popup" timestamp="1605936323336">
-      <screen x="0" y="27" width="1440" height="873" />
+    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1606117300139">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1605859359624" />
+    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606117300139" />
     <state x="386" y="153" width="672" height="658" key="search.everywhere.popup/0.27.1440.873@0.27.1440.873" timestamp="1605936323336" />
     <state x="439" y="259" width="544" height="196" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1606010799632">
       <screen x="0" y="0" width="1440" height="900" />

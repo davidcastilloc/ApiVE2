@@ -2,8 +2,8 @@
 from fastapi import FastAPI, Path, Request, status
 from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
-from src.app.modules.buscador import CiudadanoException, get_ciudadano
-from src.app.modules.models import Ciudadano
+from modules.buscador import CiudadanoException, get_ciudadano
+from modules.models import Ciudadano
 
 
 app = FastAPI()

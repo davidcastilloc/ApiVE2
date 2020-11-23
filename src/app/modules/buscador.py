@@ -2,8 +2,8 @@
 import urllib.request
 from scrapy.selector import Selector
 from fastapi import status
-from src.app.modules.models import Ciudadano
-from src.app.modules.helpers import Parse, ParseNombre
+from modules.models import Ciudadano
+from modules.helpers import Parse, ParseNombre
 
 
 registro_electoral_xpath = '//td/b/font/text()|//td/b/text()|//td/text()|//td/font/text()'

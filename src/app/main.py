@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-from .buscador import CiudadanoException, get_ciudadano
 from fastapi import FastAPI, Path, Request, status
 from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
+from .buscador import CiudadanoException, get_ciudadano
 from .models import Ciudadano
 
 app = FastAPI()
@@ -23,6 +23,16 @@ async def unicorn_exception_handler(request: Request, exc: CiudadanoException):
             "message": exc.message
         }
     )
+
+@app.get("/")
+def root():
+    return {"Response": ["Hello World", "Hola Mundo" ,"Hola Venezuela"]}
+
+
+@app.get("/{nacionalidad}/{cedula}", response_model= Ciudadano)
+def search_ciudadano_old_v(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
+    return get_ciudadano(nacionalidad.upper(), cedula)
+
 
 @app.get("/v1/{nacionalidad}/{cedula}", response_model= Ciudadano)
 def search_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):

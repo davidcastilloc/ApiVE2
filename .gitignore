@@ -64,7 +64,6 @@
 # Ignore all local history of files
 .history
 .ionide
-*.pyc
 .idea/**
 src/app/__pycache__/**
-src/app/__pycache__/main.cpython-38.pyc
+src/__pycache__/**

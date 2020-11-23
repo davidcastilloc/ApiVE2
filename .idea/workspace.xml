@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c306813e-f31d-4f15-9813-db6dc43550f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/buscador.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/buscador.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606117463825</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Docker Ignore actualizado">
+      <created>1606117537784</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606117537784</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,7 +127,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Integrado el sistema que arregla los nombres del ciudadano" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrado el sistema que arregla los nombres del ciudadano" />
+    <MESSAGE value="Docker Ignore actualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker Ignore actualizado" />
   </component>
   <component name="WindowStateProjectService">
     <state x="305" y="86" width="804" height="667" key="#Docker" timestamp="1605808071564">
@@ -132,6 +139,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="347" y="104" width="736" height="627" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1605831708403" />
+    <state x="619" y="242" width="201" height="364" key="#Vim_Emulation" timestamp="1606120231546">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="619" y="242" width="201" height="364" key="#Vim_Emulation/0.0.1440.900@0.0.1440.900" timestamp="1606120231546" />
     <state x="170" y="-10" width="1084" height="873" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605929694229">
       <screen x="0" y="27" width="1440" height="873" />
     </state>
@@ -154,19 +165,19 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="406" y="44" width="618" height="747" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605830081480" />
-    <state x="71" y="-130" width="992" height="900" key="SettingsEditor" timestamp="1606117000687">
+    <state x="157" y="-18" width="992" height="900" key="SettingsEditor" timestamp="1606119977139">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="71" y="-130" width="992" height="900" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606117000687" />
+    <state x="157" y="-18" width="992" height="900" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606119977139" />
     <state x="205" y="-10" width="992" height="910" key="SettingsEditor/0.27.1440.873@0.27.1440.873" timestamp="1605930218314" />
     <state x="151" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605956780620">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="151" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1605956780620" />
-    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1606117300139">
+    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1606123333622">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606117300139" />
+    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606123333622" />
     <state x="386" y="153" width="672" height="658" key="search.everywhere.popup/0.27.1440.873@0.27.1440.873" timestamp="1605936323336" />
     <state x="439" y="259" width="544" height="196" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1606010799632">
       <screen x="0" y="0" width="1440" height="900" />

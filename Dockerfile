@@ -4,4 +4,4 @@ RUN apk add --no-cache \
     libffi-dev libressl-dev \
     libxml2-dev zlib-dev \
     &&/usr/local/bin/python -m pip install Scrapy~=2.4.1 
-COPY ./src /app
+COPY ./src/app /app

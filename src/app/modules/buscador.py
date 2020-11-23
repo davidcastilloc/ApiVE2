@@ -50,7 +50,7 @@ def get_registro_civil(nacionalidad, cedula):
         )
     pn = ParseNombre(html)
     return Ciudadano(
-        nacionalidad="VENEZOLANO" if nacionalidad == "V" else "EXTRANJERO",
+        nacionalidad="Venezolano" if nacionalidad == "V" else "Extranjero",
         cedula=nacionalidad + "-" + str(cedula),
         nombre_completo=pn.nombre_completo,
         nombres=pn.nombre_de_pila,
@@ -78,7 +78,7 @@ def get_registro_nacional_electoral(nacionalidad: str, cedula: int):
     pn = ParseNombre(html)
     p = Parse()
     return Ciudadano(
-        nacionalidad="VENEZOLANO" if nacionalidad == "V" else "EXTRANJERO",
+        nacionalidad="Venezolano" if nacionalidad == "V" else "Extranjero",
         cedula=nacionalidad + "-" + str(cedula),
         nombre_completo=pn.nombre_completo,
         nombres=pn.nombre_de_pila,

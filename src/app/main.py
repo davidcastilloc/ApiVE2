@@ -31,11 +31,11 @@ def root():
 
 
 @app.get("/{nacionalidad}/{cedula}", response_model= Ciudadano)
-def search_ciudadano_old_v(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
+async def search_ciudadano_old_v(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
     return get_ciudadano(nacionalidad.upper(), cedula)
 
 
 @app.get("/v1/{nacionalidad}/{cedula}", response_model= Ciudadano)
-def search_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
+async def search_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
     return get_ciudadano(nacionalidad.upper(), cedula)
 

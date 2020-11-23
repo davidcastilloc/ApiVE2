@@ -1,0 +1,5 @@
+{
+	"python.pythonPath": "/usr/local/bin/python",
+	"terminal.integrated.shell.linux": "sh",
+	"editor.codeActionsOnSave": {"source.fixAll": true},
+}

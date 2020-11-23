@@ -1,21 +1,8 @@
-#Ignore the logs directory
-logs/
-
-#Ignoring the password file
-passwords.txt
-
-#Ignoring git and cache folders
-.git
-.cache
-
-#Ignoring all the markdown and class files
-*.md
-**/*.class
-
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,pycharm,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,pycharm,visualstudiocode
 
+*.code-workspace
 ### PyCharm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -118,10 +105,11 @@ fabric.properties
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
+.idea/workspace.xml
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
-**__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -263,7 +251,7 @@ dmypy.json
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
-*.code-workspace
+.code-workspace
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files

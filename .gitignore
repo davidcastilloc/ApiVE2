@@ -251,7 +251,7 @@ dmypy.json
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
-*.code-workspace
+.code-workspace
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
@@ -259,5 +259,3 @@ dmypy.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,visualstudiocode
-.idea/workspace.xml
-.idea/workspace.xml

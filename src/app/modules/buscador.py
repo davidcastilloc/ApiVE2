@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-import urllib.request
 from scrapy.selector import Selector
 from fastapi import status
 from modules.models import Ciudadano
 from modules.helpers import Parse, ParseNombre
+from modules.ConectionManager import ConsultarDatos
 
 
 registro_electoral_xpath = '//td/b/font/text()|//td/b/text()|//td/text()|//td/font/text()'
 registro_civil_xpath = '//td//b/text()'
-url_base_cne = 'http://www.cne.gov.ve/web/registro_'
-registro_electoral = 'electoral/ce.php?nacionalidad={nac}&cedula={ced}'
-registro_civil = 'civil/buscar_rep.php?nacionalidad={nac}&ced={ced}'
+
 
 CI_NO_REGISTRADA = 404
 CI_FALLECIDO = 401
@@ -32,16 +30,8 @@ def get_ciudadano(nacionalidad, cedula):
     return ciudadano
 
 
-def get_decoded_html(servicio, nacionalidad, cedula):
-    url_for_urllib = url_base_cne + servicio.format(nac=nacionalidad, ced=cedula)
-    print(url_for_urllib)
-    html = urllib.request.urlopen(url_for_urllib)
-    decoded = html.read().decode('utf-8')
-    return decoded.replace('\t', '').replace('\n', '').replace('\r', '')
-
-
 def get_registro_civil(nacionalidad, cedula):
-    html = get_decoded_html(registro_civil, nacionalidad, cedula)
+    html = ConsultarDatos(nacionalidad, cedula).registro_civil()
     data = Selector(text=html).xpath(registro_civil_xpath).extract()
     if not data:
         raise CiudadanoException(
@@ -65,13 +55,11 @@ def get_registro_civil(nacionalidad, cedula):
 
 
 def get_registro_nacional_electoral(nacionalidad: str, cedula: int):
-    html = get_decoded_html(registro_electoral, nacionalidad, cedula)
+    html = ConsultarDatos(nacionalidad, cedula).registro_nacional_electoral()
     data = Selector(text=html).xpath(registro_electoral_xpath).extract()
-    print(f"'{data[3]}'")
     if data[3].find("Registro") == 0:
         return CI_NO_REGISTRADA
     elif data[3] == " FALLECIDO (3)":
-        print("FALLECIDO!!!!!?????")
         raise CiudadanoException(
             message=f"Error! la cedula {nacionalidad}-{cedula} pertenece a un ciudadano fallecido...",
             code=CI_FALLECIDO

@@ -3,19 +3,50 @@ from databases import Database
 from fastapi import FastAPI, Path, Request, status
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse
+from pydantic import BaseSettings
 from sqlalchemy import Column, MetaData, Table, create_engine
 from sqlalchemy.sql import select
 from sqlalchemy.sql.sqltypes import Integer, String
 from starlette.middleware.cors import CORSMiddleware
 
-from modules.buscador import CiudadanoException, Buscar
+from modules.buscador import Buscar, CiudadanoException
 from modules.models import Ciudadano
 
+
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="ApiVe",
+        version="2.5.0",
+        description="Hecho con cariño de un programador para otro programador.",
+        routes=app.routes,
+    )
+    openapi_schema["info"]["x-logo"] = {
+        "url": "https://apive.herokuapp.com/static/apive.png"
+    }
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
+
+
+class Settings(BaseSettings):
+    app_name: str = "ApiVe"
+    admin_email: str
+    items_per_user: int = 50
+
+
 app = FastAPI()
+settings = Settings(
+    app_name = "ApiVe",
+    admin_email="vikruzdavid@gmail.com",
+)
 DATABASE_URL = "sqlite:///./test.db"
 database = Database(DATABASE_URL)
-
 metadata = MetaData()
+
+app.openapi = custom_openapi
+
+
 ciudadanos = Table(
     "ciudadanos",
     metadata,
@@ -31,12 +62,11 @@ ciudadanos = Table(
     Column("centro", String),
     Column("direccion", String),
 )
-
 engine = create_engine(
     DATABASE_URL
 )
-
 metadata.create_all(engine)
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -57,6 +87,15 @@ async def shutdown():
     await database.disconnect()
 
 
+@app.get("/info")
+async def info():
+    return {
+        "app_name": settings.app_name,
+        "admin_email": settings.admin_email,
+        "items_per_user": settings.items_per_user,
+    }
+
+
 async def insertar_ciudadano(ciudadano: Ciudadano):
     query = ciudadanos.insert().values(
         nacionalidad=ciudadano.nacionalidad,
@@ -72,25 +111,6 @@ async def insertar_ciudadano(ciudadano: Ciudadano):
     )
     last_record_id = await database.execute(query)
     return {**ciudadano.dict(), "id": last_record_id}
-
-
-def custom_openapi():
-    if app.openapi_schema:
-        return app.openapi_schema
-    openapi_schema = get_openapi(
-        title="ApiVe",
-        version="2.5.0",
-        description="Hecho con cariño de un programador para otro programador.",
-        routes=app.routes,
-    )
-    openapi_schema["info"]["x-logo"] = {
-        "url": "https://apive.herokuapp.com/static/apive.png"
-    }
-    app.openapi_schema = openapi_schema
-    return app.openapi_schema
-
-
-app.openapi = custom_openapi
 
 
 @app.exception_handler(CiudadanoException)
@@ -123,4 +143,7 @@ async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Ced
             direccion=sqlite_local[10]
         )
     else:
-        return await insertar_ciudadano(Buscar.get_ciudadano(nacionalidad.upper(), cedula))
+        ciudadano = Buscar(nacionalidad=nacionalidad,
+                           cedula=cedula)
+        tmp = ciudadano.get_ciudadano()
+        return await insertar_ciudadano(tmp)

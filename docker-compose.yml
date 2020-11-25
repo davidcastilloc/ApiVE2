@@ -2,10 +2,9 @@ version: "3.7"
 services:
   web:
     build: .
-    command: /start-reload.sh
+    command: /start.sh
     volumes:
-      - app:./src/app:/app
-      - environment:/usr/local/bin/
+      - './src/app:/app'
     ports:
       - 8080:80
     environment:
@@ -15,7 +14,3 @@ services:
       - HOST=0.0.0.0
       - PORT=80
       - LOG_LEVEL=debug
-
-volumes:
-  app:
-  environment:

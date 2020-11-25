@@ -69,3 +69,4 @@ env
 src/app/__pycache__/**
 /__pycache/*
 __pycache__/
+*.db

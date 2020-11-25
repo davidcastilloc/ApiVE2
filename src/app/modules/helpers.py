@@ -70,15 +70,10 @@ class ParseNombre:
         # primero tomar la decicion
         if decoded_html is not None:
             self.html_data = Selector(text=decoded_html, type="html").xpath("//b")
-            print(self.html_data)
             if decoded_html.find("REGISTRO ELECTORAL - CONSULTA DE DATOS") > 0:
                 self._extraer_nombre_html_cne()
             else:
                 self._calc_nombre(self.html_data.extract_first())
-            print("resultado de funcion")
-            print(self.nombre_de_pila)
-            print(self.apellidos)
-            print(self.nombre_completo)
             self.nombre_de_pila = self.nombre_de_pila.title()
             self.apellidos = self.apellidos.title()
             self.nombre_completo = self.nombre_completo.title()
@@ -98,8 +93,6 @@ class ParseNombre:
         un_apellido_test = nombre_html_de_scrapy.find(' </b>') > 0
         # si el ciudadano tiene un solo nombre devuelve True
         un_nombre_test = nombre_html_de_scrapy.find('  ') > 0
-        print(un_apellido_test)
-        print(un_nombre_test)
         if len(nombre) == 4:
             self.nombre_de_pila = f"{nombre[0]} {nombre[1]}"
             self.apellidos = f"{nombre[-2]} {nombre[-1]}"
@@ -125,14 +118,12 @@ class ParseNombre:
                     decision = len(nombre) / 2
                     if k <= decision:
                         print("CONECTIVO INICIO ENCONTRADO >" + v)
-                        print(f"{k} {v}")
                         conectivos.append([k, v])
                         offset = k + 1
                         self.nombre_de_pila = f"{nombre[0]} {nombre[offset - 1]} {nombre[offset]}"
                         self.apellidos = nombre[-1]
                     else:
                         print("CONECTIVO FINAL ENCONTRADO >" + v)
-                        print(f"{k} {v}")
                         conectivos.append([k, v])
                         self.nombre_de_pila = f"{nombre[0]} {nombre[1]}"
                         self.apellidos = f"{nombre[-3]} {conectivos[0][1]} {nombre[conectivos[0][0] + 1]}"

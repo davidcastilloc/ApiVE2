@@ -1,3 +1,4 @@
+
 import  urllib.request
 
 class ConsultarDatos():
@@ -36,8 +37,8 @@ class ConsultarDatos():
                 the_page = response.read().decode('utf8')
             return str(the_page.replace('\t', '').replace('\n', '').replace('\r', ''))
         except Exception as x:
-            print('Fallo la conexion :(', x.__class__.__name__)
-            raise x
+            return None
+            
 
 
     def registro_nacional_electoral(self):

@@ -4,7 +4,7 @@ from pydantic import BaseModel
 class Ciudadano(BaseModel):
     id: int
     nacionalidad: str
-    cedula: str
+    cedula: int
     nombre_completo: str
     nombres: str
     apellidos: str

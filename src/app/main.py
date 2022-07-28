@@ -2,7 +2,8 @@
 from databases import Database
 from fastapi import FastAPI, Path, Request, status
 from fastapi.openapi.utils import get_openapi
-from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseSettings
 from sqlalchemy import Column, MetaData, Table, create_engine
 from sqlalchemy.sql import select
@@ -43,6 +44,8 @@ settings = Settings(
 DATABASE_URL = "sqlite:///./test.db"
 database = Database(DATABASE_URL)
 metadata = MetaData()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.openapi = custom_openapi
 

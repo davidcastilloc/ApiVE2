@@ -6,6 +6,7 @@ from modules.ConectionManager import ConsultarDatos
 from modules.helpers import Parse, ParseNombre
 from modules.models import Ciudadano
 
+
 class CiudadanoException(Exception):
     def __init__(self, message: str, code: int):
         self.message = message
@@ -14,7 +15,7 @@ class CiudadanoException(Exception):
 
 class Buscar:
     CI_NO_REGISTRADA = 404
-    CI_FALLECIDO = 401
+    CI_FALLECIDO = 400
     nacionalidad = 0
     cedula = ""
     registro_electoral_xpath = '//td/b/font/text()|//td/b/text()|//td/text()|//td/font/text()'
@@ -23,15 +24,8 @@ class Buscar:
     def __init__(self, nacionalidad: str, cedula: int):
         self.nacionalidad = nacionalidad.upper()
         self.cedula = cedula
-        print("PARAMETROS")
-        print(self.nacionalidad)
-        print(self.cedula)
         
     def get_ciudadano(self):
-        print("GET CIUDADANO")
-        print(self.nacionalidad)
-        print(self.cedula)
-        
         ciudadano = self._get_registro_nacional_electoral()
         if ciudadano is self.CI_NO_REGISTRADA:
             ciudadano = self._get_registro_civil()
@@ -41,13 +35,8 @@ class Buscar:
         return ciudadano
 
     def _get_registro_civil(self):
-        print("REGISTRO CIVIL")
-        print(self.nacionalidad)
-        print(self.cedula)
-        
         html = ConsultarDatos(self.nacionalidad, self.cedula).registro_civil()
         data = Selector(text=html).xpath(self.registro_civil_xpath).extract()
-        print(data)
         if not data:
             raise CiudadanoException(
                 message=f"Error! la cedula {self.nacionalidad}-{self.cedula} no esta registrada en la base de datos.",
@@ -69,16 +58,12 @@ class Buscar:
         )
 
     def _get_registro_nacional_electoral(self):
-        print("REGISTRO NACIONAL ELECTORAL")
-        print(self.nacionalidad)
-        print(self.cedula)
-        
         html = ConsultarDatos(
             self.nacionalidad, self.cedula).registro_nacional_electoral()
         data = Selector(text=html).xpath(self.registro_electoral_xpath).extract()
         if data[3].find("Registro") == 0:
             return self.CI_NO_REGISTRADA
-        elif data[3] == " FALLECIDO (3)":
+        if data[4] == " FALLECIDO (3)":
             raise CiudadanoException(
                 message=f"Error! la cedula {self.nacionalidad}-{self.cedula} pertenece a un ciudadano fallecido...",
                 code=self.CI_FALLECIDO

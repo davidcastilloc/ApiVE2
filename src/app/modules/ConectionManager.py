@@ -1,5 +1,6 @@
 
-import  urllib.request
+import urllib.request
+
 
 class ConsultarDatos():
     """

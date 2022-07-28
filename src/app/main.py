@@ -2,7 +2,7 @@
 from databases import Database
 from fastapi import FastAPI, Path, Request, status
 from fastapi.openapi.utils import get_openapi
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from pydantic import BaseSettings
 from sqlalchemy import Column, MetaData, Table, create_engine
 from sqlalchemy.sql import select
@@ -123,6 +123,11 @@ async def unicorn_exception_handler(request: Request, exc: CiudadanoException):
         }
     )
 
+@app.get("/")
+async def home_page():
+    return HTMLResponse(status_code=status.HTTP_200_OK, content=open("index.html", "r").read())
+    
+    
 
 @app.get("/api/v1/{nacionalidad}/{cedula}", response_model=Ciudadano)
 async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
@@ -142,8 +147,8 @@ async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Ced
             centro=sqlite_local[9],
             direccion=sqlite_local[10]
         )
-    else:
-        ciudadano = Buscar(nacionalidad=nacionalidad,
-                           cedula=cedula)
-        tmp = ciudadano.get_ciudadano()
-        return await insertar_ciudadano(tmp)
+    ciudadano = Buscar(
+    nacionalidad=nacionalidad,
+    cedula=cedula)
+    tmp = ciudadano.get_ciudadano()
+    return await insertar_ciudadano(tmp)

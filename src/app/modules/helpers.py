@@ -9,7 +9,7 @@ class Parse(object):
     replace_edo = {'Edo. ': '', 'Dtto. Capital': 'Distrito Capital'}
 
     replace_mp = {'Mp. ': '', 'Ce. Blvno Libertador': 'Libertador', 'Ce. ': '',
-                  'Mp.': '', }
+'Mp.': '', }
 
     replace_pq = {'Pq. ': '', 'Cm. ': ''}
 
@@ -18,7 +18,7 @@ class Parse(object):
         '\xc3\x83\xc2\x8d': '\xc3\xad',  # í
         '\xc3\x90': 'ñ',  # ñ
         '\xf1': 'ñ', ''
-                     'Á': 'a', 'á': 'a', 'À': 'a', 'à': 'a', 'Ä': 'a', 'ä': 'a',
+        'Á': 'a', 'á': 'a', 'À': 'a', 'à': 'a', 'Ä': 'a', 'ä': 'a',
         'É': 'e', 'é': 'e', 'È': 'e', 'è': 'e', 'Ë': 'e', 'ë': 'e',
         'Í': 'i', 'í': 'i', 'Ì': 'i', 'ì': 'i', 'Ï': 'i', 'ï': 'i',
         'Ó': 'o', 'ó': 'o', 'Ò': 'o', 'ò': 'o', 'Ö': 'o', 'ö': 'o',

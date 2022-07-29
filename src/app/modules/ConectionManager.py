@@ -2,7 +2,7 @@
 import urllib.request
 
 
-class ConsultarDatos():
+class  ConsultarDatos():
     """
     Clase que se encarga de conectarnos con los servicios de internet.
     """

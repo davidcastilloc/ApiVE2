@@ -29,14 +29,12 @@ class Buscar:
         ciudadano = self._get_registro_nacional_electoral()
         if ciudadano is self.CI_NO_REGISTRADA:
             ciudadano = self._get_registro_civil()
-            if ciudadano is self.CI_NO_REGISTRADA:
-                return status.HTTP_404_NOT_FOUND
-            return ciudadano
         return ciudadano
 
     def _get_registro_civil(self):
         html = ConsultarDatos(self.nacionalidad, self.cedula).registro_civil()
         data = Selector(text=html).xpath(self.registro_civil_xpath).extract()
+        print(data)
         if not data:
             raise CiudadanoException(
                 message=f"Error! la cedula {self.nacionalidad}-{self.cedula} no esta registrada en la base de datos.",
@@ -46,7 +44,7 @@ class Buscar:
         return Ciudadano(
             id=int(self.cedula),
             nacionalidad="Venezolano" if self.nacionalidad == "V" else "Extranjero",
-            cedula=self.nacionalidad + "-" + str(self.cedula),
+            cedula=int(self.cedula),
             nombre_completo=pn.nombre_completo,
             nombres=pn.nombre_de_pila,
             apellidos=pn.apellidos,
@@ -58,18 +56,22 @@ class Buscar:
         )
 
     def _get_registro_nacional_electoral(self):
-        html = ConsultarDatos(
-            self.nacionalidad, self.cedula).registro_nacional_electoral()
-        data = Selector(text=html).xpath(self.registro_electoral_xpath).extract()
-        if data[3].find("Registro") == 0:
+        try:
+            html = ConsultarDatos(
+                self.nacionalidad, self.cedula).registro_nacional_electoral()
+            data = Selector(text=html).xpath(self.registro_electoral_xpath).extract()
+            if data[2].find("Registro") == 0:
+                return self.CI_NO_REGISTRADA
+            if data[4] == " FALLECIDO (3)":
+                raise CiudadanoException(
+                    message=f"Error! la cedula {self.nacionalidad}-{self.cedula} pertenece a un ciudadano fallecido...",
+                    code=self.CI_FALLECIDO
+                )
+            pn = ParseNombre(html)
+            p = Parse()
+        except IndexError:
+            print("Error! la cedula no esta registrada en la base de datos.")
             return self.CI_NO_REGISTRADA
-        if data[4] == " FALLECIDO (3)":
-            raise CiudadanoException(
-                message=f"Error! la cedula {self.nacionalidad}-{self.cedula} pertenece a un ciudadano fallecido...",
-                code=self.CI_FALLECIDO
-            )
-        pn = ParseNombre(html)
-        p = Parse()
         return Ciudadano(
             id=int(self.cedula),
             nacionalidad="Venezolano" if self.nacionalidad == "V" else "Extranjero",

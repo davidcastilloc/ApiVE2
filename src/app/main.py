@@ -129,8 +129,6 @@ async def unicorn_exception_handler(request: Request, exc: CiudadanoException):
 @app.get("/")
 async def home_page():
     return HTMLResponse(status_code=status.HTTP_200_OK, content=open("index.html", "r").read())
-    
-    
 
 @app.get("/api/v1/{nacionalidad}/{cedula}", response_model=Ciudadano)
 async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
@@ -153,5 +151,4 @@ async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Ced
     ciudadano = Buscar(
     nacionalidad=nacionalidad,
     cedula=cedula)
-    tmp = ciudadano.get_ciudadano()
-    return await insertar_ciudadano(tmp)
+    return await insertar_ciudadano(ciudadano.get_ciudadano())

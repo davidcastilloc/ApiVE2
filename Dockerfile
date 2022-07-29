@@ -7,6 +7,7 @@ RUN python -m pip install --upgrade pip
 RUN apk add musl-dev python3-dev libffi-dev openssl-dev cargo
 RUN /usr/local/bin/python -m pip install SQLAlchemy
 RUN /usr/local/bin/python -m pip install aiosqlite
+RUN /usr/local/bin/python -m pip install aiofiles
 RUN /usr/local/bin/python -m pip install databases
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 RUN /usr/local/bin/python -m pip install Scrapy

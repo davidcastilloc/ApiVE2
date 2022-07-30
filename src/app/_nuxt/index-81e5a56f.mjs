@@ -1,0 +1,1 @@
+import{i as s,o,a as t,b as e,j as c}from"./entry-5681ac12.mjs";const a={},n={class:"hero is-medium is-info"},r=e("div",{class:"hero-body"},[e("div",{class:"container has-text-centered"},[e("div",{class:"content"},[e("img",{src:c})])])],-1),i=[r];function _(d,l){return o(),t("body",n,i)}var f=s(a,[["render",_]]);export{f as default};

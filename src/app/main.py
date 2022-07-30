@@ -38,17 +38,16 @@ class Settings(BaseSettings):
 
 app = FastAPI()
 settings = Settings(
-    app_name = "ApiVe",
+    app_name="ApiVe",
     admin_email="vikruzdavid@gmail.com",
 )
 DATABASE_URL = "sqlite:///./test.db"
 database = Database(DATABASE_URL)
 metadata = MetaData()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/_nuxt", StaticFiles(directory="_nuxt"), name="static")
 
 app.openapi = custom_openapi
-
 
 ciudadanos = Table(
     "ciudadanos",
@@ -126,12 +125,23 @@ async def unicorn_exception_handler(request: Request, exc: CiudadanoException):
         }
     )
 
-@app.get("/")
+
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
 async def home_page():
     return HTMLResponse(status_code=status.HTTP_200_OK, content=open("index.html", "r").read())
 
+
 @app.get("/api/v1/{nacionalidad}/{cedula}", response_model=Ciudadano)
 async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Cedula del ciudadano", ge=1)):
+    """
+
+    Parametros:
+        nacionalidad (str): debe ser 'V' o 'E'
+        cedula (int): cedula del ciudadano.
+
+    Retorna:
+        _type_: Ciudadano
+    """
     var = select([ciudadanos]).where(ciudadanos.c.cedula == cedula)
     sqlite_local = await database.fetch_one(query=var)
     if sqlite_local is not None:
@@ -149,6 +159,6 @@ async def buscar_ciudadano(nacionalidad: str, cedula: int = Path(..., title="Ced
             direccion=sqlite_local[10]
         )
     ciudadano = Buscar(
-    nacionalidad=nacionalidad,
-    cedula=cedula)
+        nacionalidad=nacionalidad,
+        cedula=cedula)
     return await insertar_ciudadano(ciudadano.get_ciudadano())

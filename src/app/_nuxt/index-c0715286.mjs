@@ -1,0 +1,1 @@
+import{a as s,o,b as t,e,f as c}from"./entry-8f3a7a31.mjs";const a={},n={class:"hero is-info"},r=e("div",{class:"hero-body"},[e("div",{class:"container has-text-centered"},[e("div",{class:"content"},[e("img",{src:c})])])],-1),i=[r];function _(d,f){return o(),t("section",n,i)}var h=s(a,[["render",_]]);export{h as default};
